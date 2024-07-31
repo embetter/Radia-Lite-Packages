@@ -2,7 +2,7 @@
     "version" : 1,
  "index_name": "radia-lite-package-index",
  "devices": {
-     "emrit_merryiot_devices": {
+     "emrit_devices": {
          "packages": {
              "postgres": {
                  "required_system_dependencies": [
