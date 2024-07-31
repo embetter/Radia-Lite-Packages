@@ -7,11 +7,7 @@
              "postgres": {
                  "required_system_dependencies": [
                      {
-                         "type": "deb",
-                         "name": "docker-ce"
-                     },
-                     {
-                         "type": "file",
+                         "type": "docker",
                          "mode": "executable",
                          "path": "/usr/bin/docker"
                      }
