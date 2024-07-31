@@ -1,0 +1,57 @@
+{
+    "version" : 1,
+ "index_name": "radia-lite-package-index",
+ "devices": {
+     "emrit_merryiot_devices": {
+         "packages": {
+             "postgres": {
+                 "required_system_dependencies": [
+                     {
+                         "type": "deb",
+                         "name": "docker-ce"
+                     },
+                     {
+                         "type": "file",
+                         "mode": "executable",
+                         "path": "/usr/bin/docker"
+                     }
+                 ],
+                 "install_instructions": [
+                     {
+                        "cmd": "radia install postgres ",
+                         "op": "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/install_postgres.sh?token=GHSAT0AAAAAACUFYAWGRXMHUR53TH3UTSP4ZVKWFYQ",
+                         "data": {
+                             "image": "postgres:15.2"
+                         }
+                     }
+                 ],
+                 "uninstall_instructions": [
+                     {
+                         "op": "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/uninstall_postgres.sh?token=GHSAT0AAAAAACUFYAWH2Y4KT2RV2NNQS4XSZVKWGHA",
+                         "data": {
+                             "name": "postgres:15.2"
+                         }
+                     }
+                 ]
+             },
+             "ator": {
+                 "install_instructions": [
+                     {
+                         "op": "fetch",
+                         "data": {
+                             "link": "https://some_domain.com/install_postgres.sh",
+                             "dest": "/downloads/install_postgres.sh"
+                         }
+                     },
+                     {
+                         "op": "run_script",
+                         "data": {
+                             "path": "/downloads/install_postgres.sh"
+                         }
+                     }
+                 ]
+             }
+         }
+     }
+ }
+}
