@@ -42,7 +42,7 @@
                     ],
                     "uninstall_instructions": [
                         {
-                            "op": "stop_docker_container",
+                            "op": "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/uninstall_postgres.sh",
                             "data": {
                                 "name": "pg"
                             }
