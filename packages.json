@@ -9,7 +9,7 @@
                     "name": "postgres",
                     "required_system_dependencies": [
                         {
-                            "type": "docker",
+                            "dep_type": "docker",
                         },
                     ],
                     "install_instructions": [
