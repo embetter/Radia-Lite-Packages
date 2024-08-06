@@ -17,37 +17,17 @@
                         {
                             "op": "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/install_postgres.hbs",
                             "data": {
-                                "image": "postgres:15.2"
+                                "image": "postgres:16.3"
                             }
                         },
-                        {
-                            "op": "run_docker_container",
-                            "data": {
-                                "image": "postgres:15.2",
-                                "container_name": "pg",
-                                "env_vars": {
-                                    "DEFAULT_DB": "radia"
-                                },
-                                "secrets": [
-                                    "secret1",
-                                    "secret2"
-                                ]
-                            }
-                        }
                     ],
                     "uninstall_instructions": [
                         {
                             "op": "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/uninstall_postgres.sh",
                             "data": {
-                                "name": "pg"
+                                "image": "postgres:16.3"
                             }
                         },
-                        {
-                            "op": "rm_docker_image",
-                            "data": {
-                                "image": "postgres:15.2"
-                            }
-                        }
                     ],
                     "status_instructions": [
                         {
