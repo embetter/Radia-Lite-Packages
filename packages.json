@@ -9,23 +9,48 @@
                     "name": "postgres",
                     "required_system_dependencies": [
                         {
-                            "dep_type": "docker",
-                            "name":"docker"
+                            "type": "deb",
+                            "name": "docker-ce"
+                        },
+                        {
+                            "type": "file",
+                            "mode": "executable",
+                            "path": "/usr/bin/docker"
                         }
                     ],
                     "install_instructions": [
                         {
-                            "op": "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/install_postgres.hbs",
+                            "op": "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/install_postgres.sh",
                             "data": {
-                                "image": "postgres:16.3"
+                                "image": "postgres:15.2"
+                            }
+                        },
+                        {
+                            "op": "run_docker_container",
+                            "data": {
+                                "image": "postgres:15.2",
+                                "container_name": "pg",
+                                "env_vars": {
+                                    "DEFAULT_DB": "radia"
+                                },
+                                "secrets": [
+                                    "secret1",
+                                    "secret2"
+                                ]
                             }
                         }
                     ],
                     "uninstall_instructions": [
                         {
-                            "op": "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/uninstall_postgres.sh",
+                            "op": "stop_docker_container",
                             "data": {
-                                "image": "postgres:16.3"
+                                "name": "pg"
+                            }
+                        },
+                        {
+                            "op": "rm_docker_image",
+                            "data": {
+                                "image": "postgres:15.2"
                             }
                         }
                     ],
