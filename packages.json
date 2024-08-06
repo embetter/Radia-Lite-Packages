@@ -10,13 +10,7 @@
                     "required_system_dependencies": [
                         {
                             "type": "docker",
-                            "name": "docker-ce"
                         },
-                        {
-                            "type": "file",
-                            "mode": "executable",
-                            "path": "/usr/bin/docker"
-                        }
                     ],
                     "install_instructions": [
                         {
