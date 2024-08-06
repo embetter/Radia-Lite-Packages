@@ -10,8 +10,8 @@
                     "required_system_dependencies": [
                         {
                             "dep_type": "docker",
-                            "name":"docker",
-                        },
+                            "name":"docker"
+                        }
                     ],
                     "install_instructions": [
                         {
@@ -19,7 +19,7 @@
                             "data": {
                                 "image": "postgres:16.3"
                             }
-                        },
+                        }
                     ],
                     "uninstall_instructions": [
                         {
@@ -27,7 +27,7 @@
                             "data": {
                                 "image": "postgres:16.3"
                             }
-                        },
+                        }
                     ],
                     "status_instructions": [
                         {
