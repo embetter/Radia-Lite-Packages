@@ -10,6 +10,7 @@
                     "required_system_dependencies": [
                         {
                             "dep_type": "docker",
+                            "name":"docker",
                         },
                     ],
                     "install_instructions": [
