@@ -1,3 +1,3 @@
-docker stop postgres
-docker rm postgres
-docker rmi postgres:15.2
+docker stop rd-postgres
+docker rm rd-postgres
+docker rmi postgres:16.3
