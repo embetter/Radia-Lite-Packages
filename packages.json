@@ -20,7 +20,7 @@
                     ],
                     "install_instructions": [
                         {
-                            "op": "pull_docker_image",
+                            "op": "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/install_postgres.sh",
                             "data": {
                                 "image": "postgres:15.2"
                             }
@@ -74,7 +74,24 @@
                             ]
                         }
                     ]
-                }
+                },
+                {
+                    "name":"ator",
+                    "required_system_dependencies":[
+                        {
+                            "type":"deb"
+                        }
+                    ],
+                    "install_instructions":[
+                        {
+                            "op":"https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/install_ator.sh",
+                            "data": {
+                                "image": "ator"
+                            }
+                        }
+                    ]
+                    
+                }   
             ]
         }
     ]
