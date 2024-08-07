@@ -3,7 +3,7 @@
     "index_name": "radia-lite-package-index",
     "devices": [
         {
-            "name": "MerryIoT Hostpot Miner V1",
+            "name": "MerryIoT-Hostpot-Miner-V1",
             "packages": [
                 {
                     "name": "postgres",
