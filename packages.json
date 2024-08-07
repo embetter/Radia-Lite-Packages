@@ -3,29 +3,38 @@
     "index_name": "radia-lite-package-index",
     "devices": [
         {
-            "name": "emrit_merryiot_devices",
+            "name": "MerryIoT Hostpot Miner V1",
             "packages": [
                 {
                     "name": "postgres",
                     "required_system_dependencies": [
                         {
-                            "dep_type": "docker",
-                            "name":"docker"
+                            "name" : "docker",
+                            "dep_type": "run_cmd",
+                            "data": {
+                                "cmd" : "docker --version",
+                                "check_type" : "success_return_code"
+                            }
                         }
                     ],
                     "install_instructions": [
                         {
-                            "op": "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/install_postgres.hbs",
+                            "op": "fetch_and_run_template_script",
                             "data": {
-                                "image": "postgres:16.3"
+                                "template_script_url" : "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/install_postgres.hbs",
+                                "input_template_variables" : [{
+                                    "name" : "db_pass",
+                                    "label" : "Database Password",
+                                    "type" : "string"
+                                }]
                             }
                         }
                     ],
                     "uninstall_instructions": [
                         {
-                            "op": "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/uninstall_postgres.sh",
+                            "op": "fetch_and_run_script",
                             "data": {
-                                "image": "postgres:16.3"
+                                "script_url" : "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/uninstall_postgres.sh"
                             }
                         }
                     ],
@@ -35,7 +44,7 @@
                             "instructions": [
                                 {
                                     "op": "run_cmd",
-                                    "cmd": "docker image ......"
+                                    "cmd": "docker image ...."
                                 }
                             ]
                         },
@@ -65,8 +74,8 @@
                             }
                         }
                     ]
-                    
-                }   
+
+                }
             ]
         }
     ]
