@@ -8,7 +8,6 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-CONTACT_INFO="$1"
 
 . /etc/os-release
 
@@ -37,8 +36,8 @@ Log notice file /var/log/anon/notices.log
 ORPort 9001
 ControlPort 9051
 SocksPort 0
-Nickname em000003
-Contactinfo $CONTACT_INFO
+Nickname {{nickname}}
+Contactinfo {{contact}}
 EOF
 
 sudo systemctl restart anon.service
