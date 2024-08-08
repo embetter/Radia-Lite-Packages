@@ -21,7 +21,7 @@
                         {
                             "op": "fetch_and_run_template_script",
                             "data": {
-                                "template_script_url" : "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/install_postgres.hbs",
+                                "template_script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/install_postgres.hbs",
                                 "input_template_variables" : [{
                                     "name" : "db_pass",
                                     "label" : "Database Password",
@@ -34,8 +34,14 @@
                         {
                             "op": "fetch_and_run_script",
                             "data": {
-                                "script_url" : "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/uninstall_postgres.sh"
+                                "script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/uninstall_postgres.sh"
                             }
+                        }
+                    ],
+                    "package_status_instruction":[
+                        {
+                            "op": "run_cmd",
+                            "status_check_cmd": "docker ps --format 'json' --filter 'name=rd-postgres' | jq '.State'"
                         }
                     ]
                 },
@@ -55,12 +61,19 @@
                         {
                             "op": "fetch_and_run_template_script",
                             "data": {
-                                "template_script_url" : "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/install_ator.sh",
-                                "input_template_variables" : [{
-                                    "name" : "contact",
-                                    "label" : "Contact Info: <email-id> <ethereum-wallet-pubkey>",
-                                    "data_type" : "string"
-                                }]
+                                "template_script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/install_ator.hbs",
+                                "input_template_variables" : [
+                                    {
+                                        "name":"nickname",
+                                        "label":"Nickname for ator Service",
+                                        "data_type":"string"
+                                    },
+                                    {
+                                        "name" : "contact",
+                                        "label" : "Contact Info: <email-id> <ethereum-wallet-pubkey>",
+                                        "data_type" : "string"
+                                    }
+                                ]
                             }
                         }
                     ],
@@ -68,11 +81,16 @@
                         {
                             "op": "fetch_and_run_script",
                             "data": {
-                                "script_url" : "https://raw.githubusercontent.com/embetter/Embetter-priv-packages/main/uninstall_postgres.sh"
+                                "script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/uninstall_postgres.sh"
                             }
                         }
+                    ],
+                    "package_status_instructions":[
+                        {
+                            "op": "run_cmd",
+                            "status_check_cmd": "dpkg --verify ator"
+                        }
                     ]
-
                 }
             ]
         }
