@@ -38,11 +38,11 @@
                             }
                         }
                     ],
-                    "package_status_instruction":[
+                    "package_status_instructions":[
                         {
                             "op": "run_cmd",
                             "data": {
-                                "status_check_cmd": "docker ps --format 'json' --filter 'name=rd-postgres' | jq '.State'"
+                                "status_check_cmd": "docker ps -a --filter 'name=rd-postgres'"
                             }
                         }
                     ]
