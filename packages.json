@@ -90,7 +90,9 @@
                     "package_status_instructions":[
                         {
                             "op": "run_cmd",
-                            "status_check_cmd": "dpkg --verify ator"
+                            "data": {
+                                "status_check_cmd": "dpkg --verify ator"
+                            }
                         }
                     ]
                 }
