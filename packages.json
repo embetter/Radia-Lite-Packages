@@ -71,12 +71,12 @@
                                         "data_type":"string"
                                     },
                                     {
-                                        "name" : "contact",
+                                        "name" : "email",
                                         "label" : "email-id",
                                         "data_type" : "string"
                                     },
                                     {
-                                        "name":"Ethereum Wallet Pubkey",
+                                        "name":"ethereum_wallet",
                                         "label": "Ethereum Wallet Pubkey",
                                         "data_type": "string"
                                     }
