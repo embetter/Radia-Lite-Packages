@@ -88,7 +88,7 @@
                         {
                             "op": "fetch_and_run_script",
                             "data": {
-                                "script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/uninstall_postgres.sh"
+                                "script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/uninstall_ator.sh"
                             }
                         }
                     ],
