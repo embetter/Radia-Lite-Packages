@@ -96,7 +96,7 @@
                         {
                             "op": "run_cmd",
                             "data": {
-                                "status_check_cmd": "dpkg --verify ator"
+                                "status_check_cmd": "systemctl status anon"
                             }
                         }
                     ]
