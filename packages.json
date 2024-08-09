@@ -72,8 +72,13 @@
                                     },
                                     {
                                         "name" : "contact",
-                                        "label" : "Contact Info: <email-id> <ethereum-wallet-pubkey>",
+                                        "label" : "email-id",
                                         "data_type" : "string"
+                                    },
+                                    {
+                                        "name":"Ethereum Wallet Pubkey",
+                                        "label": "Ethereum Wallet Pubkey",
+                                        "data_type": "string"
                                     }
                                 ]
                             }
