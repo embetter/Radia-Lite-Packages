@@ -3,12 +3,6 @@
 RED='\033[0;31m'
 NOCOLOR='\033[0m'
 
-if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 <contact_info>"
-    exit 1
-fi
-
-
 . /etc/os-release
 
 if ! command -v sudo &>/dev/null; then
@@ -30,6 +24,7 @@ if [ $? -ne 0 ]; then
 fi
 
 sudo mv /etc/anon/anonrc /etc/anon/anonrc.bak
+
 
 cat <<EOF | sudo tee /etc/anon/anonrc >/dev/null
 Log notice file /var/log/anon/notices.log
