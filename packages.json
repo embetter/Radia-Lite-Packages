@@ -3,7 +3,7 @@
     "index_name": "radia-lite-package-index",
     "devices": [
         {
-            "name": "Mithesh-Shankar",
+            "name": "MerryIoTHotspotV1B84F",
             "packages": [
                 {
                     "name": "postgres",
