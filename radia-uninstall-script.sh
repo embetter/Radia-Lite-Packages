@@ -1,19 +1,54 @@
 #!/bin/bash
 
-# Define colors for output (optional, copy from original script)
-# RED='\033[0;31m'
-# NOCOLOR='\033[0m'
+# Define colors for output
+RED='\033[0;31m'
+NOCOLOR='\033[0m'
 
-# Determine the screen session name (modify if different)
-SESSION_NAME="radia_session"
+# Define the folder and path where the .deb file was downloaded
+SAVE_DIR="/radia-bin/"
+DEB_FILE="$SAVE_DIR/radia_0.1.0_arm64.deb"
 
-# Stop the program running in screen
-screen -S "$SESSION_NAME" -X quit
+# Define the package name
+PACKAGE_NAME="radia-client"
+
+# Check for required commands
+for cmd in dpkg systemctl; do
+    if ! command -v $cmd &>/dev/null; then
+        echo -e "${RED}Error: $cmd command not found. Please install it and try again.${NOCOLOR}"
+        exit 1
+    fi
+done
+
+# Stop the service
+echo "Stopping the Radia client service..."
+sudo systemctl stop radia-client
+
+# Disable the service from starting on boot
+echo "Disabling the Radia client service from starting on boot..."
+sudo systemctl disable radia-client
+
+# Remove the systemd service file if it exists
+if [ -f /lib/systemd/system/radia-client.service ]; then
+    echo "Removing the Radia client service file..."
+    sudo rm -f /lib/systemd/system/radia-client.service
+    # Reload systemd to reflect changes
+    sudo systemctl daemon-reload
+fi
 
 # Uninstall the .deb package
-sudo apt-get remove radia --yes
+echo "Uninstalling the .deb package..."
+sudo dpkg -r $PACKAGE_NAME
 
-# Optionally: Remove downloaded file and directory
-# rm -rf /radia-bin/radia_0.1.0_arm64.deb /radia-bin/
+# Remove the downloaded .deb file
+echo "Removing the downloaded .deb file..."
+rm -f "$DEB_FILE"
 
-echo "Radia stopped and uninstalled successfully."
+# Optionally, remove any residual files if needed
+# echo "Removing residual files..."
+# rm -rf /path/to/residual/files
+
+# Clean up any remaining dependencies
+echo "Removing unused dependencies..."
+sudo apt-get autoremove --yes
+
+echo "Uninstallation completed successfully."
