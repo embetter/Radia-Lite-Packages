@@ -15,7 +15,7 @@ DEB_FILE="$SAVE_DIR/radia_0.1.0_arm64.deb"
 mkdir -p "$SAVE_DIR"
 
 # Check for required commands
-for cmd in wget dpkg screen; do
+for cmd in wget dpkg systemctl; do
     if ! command -v $cmd &>/dev/null; then
         echo -e "${RED}Error: $cmd command not found. Please install it and try again.${NOCOLOR}"
         exit 1
@@ -46,12 +46,20 @@ fi
 echo "Fixing dependencies..."
 sudo apt-get install -f --yes
 
-# Start the program in a new screen session
-echo "Starting the program in a screen session..."
-screen -dmS radia_session radia  # Change 'radia' to the actual command for starting your program
+# Reload systemd to recognize the new service
+echo "Reloading systemd..."
+sudo systemctl daemon-reload
 
-# Inform the user how to reattach to the screen session
-echo "The program is running in the background. To reattach to the session, run:"
-echo -e "${RED}screen -r radia_session${NOCOLOR}"
+# Start the service
+echo "Starting the Radia client service..."
+sudo systemctl start radia-client
+
+# Enable the service to start on boot
+echo "Enabling the Radia client service to start on boot..."
+sudo systemctl enable radia-client
+
+# Check the status of the service
+echo "Checking the service status..."
+sudo systemctl status radia-client --no-pager
 
 echo "Installation and startup completed successfully."
