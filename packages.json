@@ -3,7 +3,7 @@
     "index_name": "radia-package-index",
     "devices": [
         {
-            "name": "MerryIoTHotspot",
+            "name": "MerryIoTHotspotV1B84F",
             "packages": [
                 {
                     "name": "postgres",
