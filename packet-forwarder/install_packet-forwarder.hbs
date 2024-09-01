@@ -1,0 +1,3 @@
+#!/bin/bash
+docker pull public.ecr.aws/h5f9d0n0/embettertech/lora-pkt-frwdr:latest
+docker run --name lora-pkt-frwdr -e REGION_OVERRIDE={{frequency}} -e SERVER_ADDRESS={{server_address}} -e SERV_PORT_UP={{port_up}} -e SERV_PORT_DOWN={{port_down}} public.ecr.aws/h5f9d0n0/embettertech/lora-pkt-frwdr:latest

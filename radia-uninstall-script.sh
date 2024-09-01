@@ -5,11 +5,11 @@ RED='\033[0;31m'
 NOCOLOR='\033[0m'
 
 # Define the folder and path where the .deb file was downloaded
-SAVE_DIR="/radia-bin/"
+SAVE_DIR="/radia/bin/"
 DEB_FILE="$SAVE_DIR/radia_0.1.0_arm64.deb"
 
 # Define the package name
-PACKAGE_NAME="radia-client"
+PACKAGE_NAME="radia"
 
 # Check for required commands
 for cmd in dpkg systemctl; do
@@ -21,16 +21,16 @@ done
 
 # Stop the service
 echo "Stopping the Radia client service..."
-sudo systemctl stop radia-client
+sudo systemctl stop radia
 
 # Disable the service from starting on boot
 echo "Disabling the Radia client service from starting on boot..."
-sudo systemctl disable radia-client
+sudo systemctl disable radia
 
 # Remove the systemd service file if it exists
-if [ -f /lib/systemd/system/radia-client.service ]; then
+if [ -f /lib/systemd/system/radia.service ]; then
     echo "Removing the Radia client service file..."
-    sudo rm -f /lib/systemd/system/radia-client.service
+    sudo rm -f /lib/systemd/system/radia.service
     # Reload systemd to reflect changes
     sudo systemctl daemon-reload
 fi

@@ -8,7 +8,7 @@ NOCOLOR='\033[0m'
 DEB_URL="https://radia-deb-pkg.s3.amazonaws.com/repo/pool/main/r/radia_0.1.0_arm64.deb"
 
 # Define the folder and path where the .deb file will be downloaded
-SAVE_DIR="/radia-bin/"
+SAVE_DIR="/radia/bin/"
 DEB_FILE="$SAVE_DIR/radia_0.1.0_arm64.deb"
 
 # Ensure the directory exists, if not, create it
@@ -52,14 +52,14 @@ sudo systemctl daemon-reload
 
 # Start the service
 echo "Starting the Radia client service..."
-sudo systemctl start radia-client
+sudo systemctl start radia
 
 # Enable the service to start on boot
 echo "Enabling the Radia client service to start on boot..."
-sudo systemctl enable radia-client
+sudo systemctl enable radia
 
 # Check the status of the service
 echo "Checking the service status..."
-sudo systemctl status radia-client --no-pager
+sudo systemctl status radia --no-pager
 
 echo "Installation and startup completed successfully."
