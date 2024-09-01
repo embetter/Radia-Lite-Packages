@@ -132,12 +132,12 @@
                                     {
                                         "name":"port_up",
                                         "label": "Port Range up",
-                                        "data_type": "number"
+                                        "data_type": "string"
                                     },
                                     {
                                         "name":"port_down",
                                         "label": "Port Range down",
-                                        "data_type": "number"
+                                        "data_type": "string"
                                     }
                                 ]
                             }
