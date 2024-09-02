@@ -51,10 +51,10 @@
                     "name":"ator",
                     "required_system_dependencies": [
                         {
-                            "name" : "docker",
+                            "name" : "dpkg",
                             "dep_type": "run_cmd",
                             "data": {
-                                "cmd" : "docker --version",
+                                "cmd" : "dpkg --version",
                                 "check_type" : "success_return_code"
                             }
                         }
