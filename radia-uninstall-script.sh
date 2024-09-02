@@ -46,6 +46,7 @@ rm -f "$DEB_FILE"
 # Optionally, remove any residual files if needed
 # echo "Removing residual files..."
 # rm -rf /path/to/residual/files
+sudo rm -rf /radia /usr/bin/radia
 
 # Clean up any remaining dependencies
 echo "Removing unused dependencies..."
