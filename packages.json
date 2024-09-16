@@ -48,7 +48,7 @@
                     ]
                 },
                 {
-                    "name":"ator",
+                    "name":"anon",
                     "required_system_dependencies": [
                         {
                             "name" : "dpkg",
@@ -63,7 +63,7 @@
                         {
                             "op": "fetch_and_run_template_script",
                             "data": {
-                                "template_script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/ator/install_ator.hbs",
+                                "template_script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/anon/install_anon.hbs",
                                 "input_template_variables" : [
                                     {
                                         "name":"nickname",
@@ -88,7 +88,7 @@
                         {
                             "op": "fetch_and_run_script",
                             "data": {
-                                "script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/ator/uninstall_ator.sh"
+                                "script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/anon/uninstall_anon.sh"
                             }
                         }
                     ],
