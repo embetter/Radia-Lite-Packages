@@ -6,7 +6,7 @@ NOCOLOR='\033[0m'
 
 # Define the folder and path where the .deb file was downloaded
 SAVE_DIR="/radia/bin/"
-DEB_FILE="$SAVE_DIR/radia_0.1.0_arm64.deb"
+DEB_FILE="$SAVE_DIR/radia_0.1.1_arm64.deb"
 
 # Define the package name
 PACKAGE_NAME="radia"

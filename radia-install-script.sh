@@ -5,11 +5,11 @@ RED='\033[0;31m'
 NOCOLOR='\033[0m'
 
 # Define the URL of the .deb file
-DEB_URL="https://radia-deb-pkg.s3.amazonaws.com/repo/pool/main/r/radia_0.1.0_arm64.deb"
+DEB_URL="https://radia-deb-pkg.s3.amazonaws.com/repo/pool/main/r/radia_0.1.1_arm64.deb"
 
 # Define the folder and path where the .deb file will be downloaded
 SAVE_DIR="/radia/bin/"
-DEB_FILE="$SAVE_DIR/radia_0.1.0_arm64.deb"
+DEB_FILE="$SAVE_DIR/radia_0.1.1_arm64.deb"
 
 # Ensure the directory exists, if not, create it
 mkdir -p "$SAVE_DIR"
