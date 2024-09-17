@@ -80,7 +80,13 @@
                                     {
                                         "name":"frequency",
                                         "label":"lorawan frequency",
-                                        "data_type":"string"
+                                        "data_type":"string",
+                                        "options": [
+                                            "EU868",
+                                            "US915",
+                                            "AS923",
+                                            "AU915"
+                                        ]
                                     },
                                     {
                                         "name" : "server_address",
