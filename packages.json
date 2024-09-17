@@ -3,7 +3,7 @@
     "index_name": "radia-package-index",
     "devices": [
         {
-            "name": "MerryIoTHotspotV1B84F",
+            "name": "MerryIoTHotspotV1",
             "packages": [
                 {
                     "name":"anon",
@@ -36,7 +36,7 @@
                                     {
                                         "name":"ethereum_wallet",
                                         "label": "Ethereum Wallet Pubkey",
-                                        "data_type": "string"
+                                        "data_type": "ethereum_wallet_pubkey"
                                     }
                                 ]
                             }
@@ -83,9 +83,7 @@
                                         "data_type":"string",
                                         "options": [
                                             "EU868",
-                                            "US915",
-                                            "AS923",
-                                            "AU915"
+                                            "US915"
                                         ]
                                     },
                                     {
@@ -125,7 +123,7 @@
                     ]
                 },
                 {
-                    "name":"helium-pkt-frwdr",
+                    "name":"gateway-rs",
                     "required_system_dependencies": [
                         {
                             "name" : "docker",
@@ -140,7 +138,7 @@
                         {
                             "op": "fetch_and_run_template_script",
                             "data": {
-                                "template_script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/helium-pkt-frwdr/install_helium-pkt-frwdr.hbs",
+                                "template_script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/gateway-rs/install_gateway-rs.hbs",
                                 "input_template_variables" : [
                                     
                                 ]
@@ -151,7 +149,7 @@
                         {
                             "op": "fetch_and_run_script",
                             "data": {
-                                "script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/helium-pkt-frwdr/uninstall_helium-pkt-frwdr.sh"
+                                "script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/gateway-rs/uninstall_gateway-rs.sh"
                             }
                         }
                     ],
@@ -159,7 +157,7 @@
                         {
                             "op": "run_cmd",
                             "data": {
-                                "status_check_cmd": "docker ps --filter 'name=helium-pkt-frwdr' | grep helium-pkt-frwdr"
+                                "status_check_cmd": "docker ps --filter 'name=gateway-rs' | grep gateway-rs"
                             }
                         }
                     ]
