@@ -3,7 +3,7 @@
     "index_name": "radia-package-index",
     "devices": [
         {
-            "name": "MerryIoTHotspotV1B84F",
+            "name": "MerryIoTHotspotV1",
             "packages": [
                 {
                     "name":"anon",
