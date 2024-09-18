@@ -8,11 +8,16 @@ NOCOLOR='\033[0m'
 DEB_URL="https://radia-deb-pkg.s3.amazonaws.com/repo/pool/main/r/radia_0.1.1_arm64.deb"
 
 # Define the folder and path where the .deb file will be downloaded
-SAVE_DIR="/radia/bin/"
+SAVE_DIR="/etc/radia/bin/"
 DEB_FILE="$SAVE_DIR/radia_0.1.1_arm64.deb"
 
-# Ensure the directory exists, if not, create it
+# Define the folder and path for the config file
+CONFIG_DIR="/etc/radia/"
+CONFIG_FILE="$CONFIG_DIR/config.json"
+
+# Ensure the directories exist, if not, create them
 mkdir -p "$SAVE_DIR"
+mkdir -p "$CONFIG_DIR"
 
 # Check for required commands
 for cmd in wget dpkg systemctl; do
@@ -61,5 +66,23 @@ sudo systemctl enable radia
 # Check the status of the service
 echo "Checking the service status..."
 sudo systemctl status radia --no-pager
+
+# Create config.json with predefined content
+echo "Creating config.json..."
+cat <<EOL > "$CONFIG_FILE"
+{
+    "device_name": "MerryIoTHotspotV1",
+    "os": "debian",
+    "architecture": "arm64"
+}
+EOL
+
+# Check if the config file was created successfully
+if [ $? -eq 0 ]; then
+    echo "Config file created successfully at $CONFIG_FILE."
+else
+    echo -e "${RED}Error: Failed to create config file.${NOCOLOR}"
+    exit 1
+fi
 
 echo "Installation and startup completed successfully."

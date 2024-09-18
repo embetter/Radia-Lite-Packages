@@ -5,11 +5,15 @@ RED='\033[0;31m'
 NOCOLOR='\033[0m'
 
 # Define the folder and path where the .deb file was downloaded
-SAVE_DIR="/radia/bin/"
+SAVE_DIR="/etc/radia/bin/"
 DEB_FILE="$SAVE_DIR/radia_0.1.1_arm64.deb"
 
 # Define the package name
 PACKAGE_NAME="radia"
+
+# Define the config file path
+CONFIG_DIR="/etc/radia/"
+CONFIG_FILE="$CONFIG_DIR/config.json"
 
 # Check for required commands
 for cmd in dpkg systemctl; do
@@ -42,6 +46,18 @@ sudo dpkg -r $PACKAGE_NAME
 # Remove the downloaded .deb file
 echo "Removing the downloaded .deb file..."
 rm -f "$DEB_FILE"
+
+# Remove the config.json file
+if [ -f "$CONFIG_FILE" ]; then
+    echo "Removing the config.json file..."
+    sudo rm -f "$CONFIG_FILE"
+fi
+
+# Optionally, remove the entire /etc/radia directory if empty
+if [ -d "$CONFIG_DIR" ]; then
+    echo "Removing the /etc/radia directory..."
+    sudo rm -rf "$CONFIG_DIR"
+fi
 
 # Optionally, remove any residual files if needed
 # echo "Removing residual files..."
