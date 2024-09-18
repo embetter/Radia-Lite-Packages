@@ -4,6 +4,8 @@
     "devices": [
         {
             "name": "MerryIoTHotspotV1",
+            "os":"debian",
+            "architecture": "arm64",
             "packages": [
                 {
                     "name":"anon",
