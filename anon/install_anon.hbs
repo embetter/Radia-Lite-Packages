@@ -16,8 +16,7 @@ sudo echo "deb [signed-by=/etc/apt/trusted.gpg.d/anon.asc] https://deb.dmz.ator.
 
 sudo apt-get update --yes
 
-# Install the anon package without interactive prompts
-sudo DEBIAN_FRONTEND=noninteractive apt-get install anon --yes
+sudo apt-get install anon --yes
 
 if [ $? -ne 0 ]; then
     echo -e "${RED}\nFailed to install the Anon package. Quitting installation.\n${NOCOLOR}"
@@ -25,6 +24,7 @@ if [ $? -ne 0 ]; then
 fi
 
 sudo mv /etc/anon/anonrc /etc/anon/anonrc.bak
+
 
 cat <<EOF | sudo tee /etc/anon/anonrc >/dev/null
 Log notice file /var/log/anon/notices.log
