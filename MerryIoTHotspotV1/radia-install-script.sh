@@ -4,8 +4,9 @@
 RED='\033[0;31m'
 NOCOLOR='\033[0m'
 
-# Define the URL of the .deb file
-DEB_URL="https://radia-deb-pkg.s3.amazonaws.com/repo/pool/main/r/radia_0.1.1_arm64.deb"
+# Define the URL of the .deb file (change this to your EC2 IP address or domain)
+EC2_IP="54.174.127.110"
+DEB_URL="http://$EC2_IP/radia_0.1.1_arm64.deb"
 
 # Define the folder and path where the .deb file will be downloaded
 SAVE_DIR="/etc/radia/bin/"
@@ -27,8 +28,8 @@ for cmd in wget dpkg systemctl; do
     fi
 done
 
-# Download the .deb file from S3
-echo "Downloading .deb file from S3..."
+# Download the .deb file from EC2 host
+echo "Downloading .deb file from EC2..."
 wget -qO "$DEB_FILE" "$DEB_URL"
 
 # Check if the download was successful
