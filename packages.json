@@ -46,7 +46,7 @@
                         {
                             "op": "run_cmd",
                             "data": {
-                                "status_check_cmd": "docker ps --filter 'name=postgres' | grep postgres"
+                                "status_check_cmd": "docker ps --filter 'name=my-ppostgres' | grep my-postgres"
                             }
                         }
                     ]
