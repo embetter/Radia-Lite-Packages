@@ -1,3 +1,3 @@
 #!/bin/bash
 docker pull postgres
-docker run --name my-postgres -ePOSTGRES_PASSWORD={{password}} -t postgres
+docker run --name my-postgres -e POSTGRES_PASSWORD={{password}} -t postgres
