@@ -26,7 +26,7 @@
                                 "template_script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/postgres/install_psql.hbs",
                                 "input_template_variables" : [
                                     {
-                                        "name":"password",
+                                        "name":"db_pass",
                                         "label":"pswd for psql",
                                         "data_type":"string"
                                     }
@@ -46,7 +46,7 @@
                         {
                             "op": "run_cmd",
                             "data": {
-                                "status_check_cmd": "docker ps --filter 'name=my-ppostgres' | grep my-postgres"
+                                "status_check_cmd": "docker ps --filter 'name=rd-ppostgres' | grep rd-postgres"
                             }
                         }
                     ]
