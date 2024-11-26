@@ -207,6 +207,50 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name":"mawari",
+                    "required_system_dependencies": [
+                        {
+                            "name" : "docker",
+                            "dep_type": "run_cmd",
+                            "data": {
+                                "cmd" : "docker --version",
+                                "check_type" : "success_return_code"
+                            }
+                        }
+                    ],  
+                    "install_instructions": [
+                        {
+                            "op": "fetch_and_run_template_script",
+                            "data": {
+                                "template_script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/mawari/install_mawari.hbs",
+                                "input_template_variables" : [
+                                    {
+                                        "name":"api_key",
+                                        "label":"Mawari API-Key",
+                                        "data_type":"string"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "uninstall_instructions": [
+                        {
+                            "op": "fetch_and_run_script",
+                            "data": {
+                                "script_url" : "https://raw.githubusercontent.com/embetter/Radia-Lite-Packages/main/mawari/uninstall_mawari.sh"
+                            }
+                        }
+                    ],
+                    "package_status_instructions":[
+                        {
+                            "op": "run_cmd",
+                            "data": {
+                                "status_check_cmd": "docker ps --filter 'name=mawari' | grep mawari"
+                            }
+                        }
+                    ]
                 }
             ]
         }
